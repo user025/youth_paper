@@ -1,0 +1,74 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FD_Youth</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+
+  <style id="holderjs-style" type="text/css"></style></head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">复指数</a>
+        </div>
+       
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href=#>Overview</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+              <li> <a><b> {{type}} </b></a> </li>
+              <li><a href="../add?type={{image}}">添加</a></li>
+              <li><a href="../search?type={{image}}">查找</a></li>
+          </ul>
+        </div>
+     </div>
+      <div class="row">
+          <div class="col-sm-offset-3 col-mid-offset-2">
+              <div class="herounit">
+                 <img src="../image/{{image}}.png"></img>
+              </div>
+          <div>
+          <table class="table">
+                  <caption> 数据来源 </caption>
+                  <tbody>
+                  {% for item in account_list %}
+                        <tr><td> {{item.account}} </td></tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+
+        <div class="col-sm-9 col-md-10 col-sm-offset-5 col-md-offset-4">
+            <button class="btn-primary"><a class="btn-primary" href="subscribe?type={{image}}" role="button"> 有你感兴趣的话题么，点此订阅^_^ </a>
+                </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+
+</body></html>

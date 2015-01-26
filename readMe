@@ -1,0 +1,34 @@
+Descirption:
+    A website using django
+    start server:
+        python2.7 manage.py runserver 
+    default port:
+        8000
+
+Version:
+    python2.7
+    django1.7
+
+Document profile:
+    account
+        models: keyword, user
+    article 
+        #upload dir, don't care
+    fdyouth
+        #structure of the three types, corresponding to fields in fdyouth_academy, fdyouth_life, fdyouth_news
+        models: academy, life, news
+    subscribe
+        #keywords and user information, corresponding to subscribe_keywords, subscribe_user
+        models: keywords, user
+    web 
+        #information of online articles, don't care
+        models: academy, life, news
+    static
+        #js,image,css files, don't care 
+        js/ 
+        image/
+        css/
+    web_page
+        #html files, don't care
+    youth_paper
+        #overall settings, including database username and password

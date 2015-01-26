@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FD_Youth</title>
+		
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="../../css/dashboard.css" rel="stylesheet" type="text/css">
+    
+  <style id="holderjs-style" type="text/css"></style></head>
+ <script type="text/javascript" src="../../js/jquery-2.1.1.min.js"> </script> 
+  <script type="text/javascript" src="../../js/bootstrap.min.js">   </script>
+  <script type="text/javascript" src="../../js/bootstrap-datetimepicker.js"> </script>
+  </head>
+
+  <body style="padding-top:0px" onload="parent.window.document.all.subpage.height=document.body.scrollHeight">
+	   <form role="form" action="/add_statu?type=life" enctype="multipart/form-data"  method="post" onsubmit="return isConfirmed();">
+           {% csrf_token %}
+	   	<div class="form-group">
+			<label for="name">标题</label>
+			<input type="text" class="form-control"  id="title" name="title" placeholder="请输入大标，大标应与文件名相同"/>
+		</div>
+		
+		<div class="form-group">
+			<div class="input-group col-sm-3">
+			<label for="issue">期号</label>
+			<input type="text" class="form-control" id="issue" name="issue" placeholder="期数，仅限数字"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="input-group col-sm-3">
+			<label for="author">作者</label>
+			<input type="text" class="form-control" id="author" name="author" placeholder="作者"/>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="input-group col-sm-3">
+			<label for="place">交流地点</label>
+			<input type="text" class="form-control" id="place" name="place" placeholder="请输入交流的地点"/>
+			</div>
+		</div>
+	
+		<div class="form-group">	
+		<label for="date">发表日期</label>
+			<div class="input-group date form_date col-sm-3" data-date="" data-date-format="dd mm yyyy"  data-link-format="yyyy-mm-dd" data-link-field="date" id="datepicker1">
+			<input class="form-control" id="date" name="date"/>
+			<span class="input-group-addon">
+			<span class="glyphicon glyphicon-time"></span>
+			</span>
+        </div>
+		    <script type="text/javascript">
+		    	$('.form_date').datetimepicker({
+        		weekStart: 1,
+        		todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			minView: 2,
+			forceParse: 0
+    			});
+		    </script>
+	   	</div>
+		     
+
+		<div class="form-group">
+			<label for="keyword">关键词</label>
+			<input type="text" class="form-control" name="keyword" id="keyword" placeholder="请输入关键词，不同关键词用空格分隔">
+			</input>
+		</div>
+	
+		<div class="form-group">
+			<label for="inputfile">文件</label>
+			<input type="file" name="article" id="article">
+			</input>
+		</div>
+    
+
+		<div class="form-group">
+			<button type="submit"  class="btn btn-primary">
+			确定
+			</button>
+		</div>
+	</form>		
+		<script type="text/javascript">
+		function isConfirmed()
+		{
+			var title=document.getElementById("title").value;
+            var author=document.getElementById("author").value;
+            var place=document.getElementById("place").value;
+			var issue=document.getElementById("issue").value;
+			var filename=document.getElementById("article").value;
+			var time=document.getElementById("date").value;
+			var keyword=document.getElementById("keyword").value;
+			var confirmMessage="请确认提交信息\n\n 文章标题"+title+"\n"+"作者："+author+"\n"+"交流地点"+place+"\n"+"发表期数: "+issue+"\n"+"发表日期: "+time+"\n"+ "关键词: "+keyword+"\n"+"文件名: "+filename;
+			return (confirm(confirmMessage));
+		}
+	</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
+    
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://v3.bootcss.com/examples/dashboard/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FD_Youth</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="../css/dashboard.css" rel="stylesheet">
+
+  <style id="holderjs-style" type="text/css"></style></head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">Document Preview</a>
+        </div>
+	<div id="navbar" class="navbar-collapse collapse">
+    {% if from_file %}
+    <form class="navbar-form navbar-right" action="sendmail" method="post" >
+        {% csrf_token %}
+        <input type="text" class="form-control" id="email" name="email" placeholder="Input your email..."/>
+        <input type="hidden" id="path" name="path" value={{file.article}}/>
+	<button type="submit" class="btn btn-primary"> 发送到邮箱
+	</button>
+    </form>
+    <form class="navbar-form navbar-right">
+        {% csrf_token %}
+        <a class="btn btn-primary" href="download?id={{file.id}}&type={{view_type}}" target="_blank"> 
+            直接下载 </a>
+    </form> 
+    {% endif %}
+    </div>
+    </div>
+    </nav>
+    <h3> {{file.title}} </h3>
+    <br/>
+    <h5> 作者:{{file.author}} 日期: {{file.date}} </h5>
+    <br/>
+    {% if from_file %}
+    {% for line in data %}
+    <p> {{line}} </p>
+    {% endfor %}
+    {% endif %}
+    {% if not from_file %}
+    <p> 该文章来自网络，请点<a href={{file.article}} target="_blank"> 此处 </a> 访问</p>
+    {% endif %} 
+    
+</body></html>
+
